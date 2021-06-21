@@ -2,6 +2,7 @@
 > 这个工程主要是运用Ansible解决运维自动化部署问题.Ansible安装可以自行科普.
 
 # 项目结构
+```
 lixin-macbook:ansible_roles lixin$ tree
 .
 ├── README.md
@@ -47,6 +48,7 @@ lixin-macbook:ansible_roles lixin$ tree /Users/lixin/Desktop/ansible_files/
             └── lib
                 └── hello-service.jar
 
+```
 # 注意事项
 > 在上传到git时,我这边是去除了*.tar.gz
 
