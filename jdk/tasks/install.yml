@@ -1,0 +1,4 @@
+- name: "unzip {{ java.install.pkg }} -d {{ remote.install.dir }}"
+  unarchive: copy=yes src={{ java.install.pkg }} dest={{ remote.install.dir }}
+- name: "ls -s {{ remote.install.dir }}{{ remote.install.path }}  {{remote.install.destination}}"
+  file: src={{ remote.install.dir }}{{ remote.install.path }} state=link  dest={{remote.install.destination}} owner=root group=root force=yes

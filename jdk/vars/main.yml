@@ -1,0 +1,9 @@
+java:
+  install:
+    pkg: jdk-8u271-linux-x64.tar.gz
+
+remote:
+  install:
+    dir: /usr/local
+    path: /jdk1.8.0_271
+    destination: /usr/local/jdk

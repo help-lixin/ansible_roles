@@ -1,0 +1,12 @@
+- name: stop app
+  shell: "{{ app_bin }}/{{ app.shell }} stop"  
+  tags : 
+    - stop
+- name: start app
+  shell: "{{ app_bin }}/{{ app.shell }} start"
+  tags : 
+    - start
+- name: restart app task
+  shell: "{{ app_bin }}/{{ app.shell }} restart"
+  tags : 
+    - restart

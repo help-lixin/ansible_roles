@@ -1,0 +1,8 @@
+app:
+  dir: /home/tomcat
+  name: "{{ service_name }}"
+  bin:  bin
+  conf: conf
+  lib:  lib
+  logs: logs
+  shell: app.sh

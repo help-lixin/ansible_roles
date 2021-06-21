@@ -1,0 +1,44 @@
+- name: define local var local_conf
+  set_fact: local_conf="{{ app.name }}/{{ second_dir }}/{{ three_dir }}/conf/*"
+  tags : 
+    - deploy
+
+- name: define local var local_lib
+  set_fact: local_lib="{{ app.name }}/{{ second_dir }}/{{ three_dir }}/lib/*"
+  tags : 
+    - deploy
+
+- name: define remote var app_path
+  set_fact: app_path="{{app.dir}}/{{app.name}}"
+  tags : 
+    - init
+
+- name: define remote var app_bin
+  set_fact: app_bin="{{app.dir}}/{{app.name}}/{{app.bin}}"
+  tags : 
+    - stop
+    - start
+    - restart
+    - init
+    - deploy
+
+- name: define remote var app_conf
+  set_fact: app_conf="{{app.dir}}/{{app.name}}/{{app.conf}}"
+  tags : 
+    - deploy
+    - init
+
+- name: define remote var app_lib
+  set_fact: app_lib="{{app.dir}}/{{app.name}}/{{app.lib}}"
+  tags : 
+    - deploy
+    - init
+
+- name: define remote var app_logs
+  set_fact: app_logs="{{app.dir}}/{{app.name}}/{{app.logs}}"
+  tags : 
+    - init
+
+#- name: print vars
+#  ansible.builtin.debug:
+#    msg: "{{ app_bin  }} , {{ app_conf }} , {{ app_lib }} , {{ app_logs  }} , {{local_conf}} , {{local_lib}} "

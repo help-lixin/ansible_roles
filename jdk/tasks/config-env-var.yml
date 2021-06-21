@@ -1,0 +1,2 @@
+- name: add JAVA_HOME to System Environment Variable
+  template: src=jdk.sh.j2 dest=/etc/profile.d/jdk.sh

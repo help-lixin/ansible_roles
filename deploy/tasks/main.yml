@@ -1,0 +1,14 @@
+# init                   :  主要用于创建项目脚手架(mkdir -p test-service/{bin/conf/lib/logs}),以及创建可执行文件app.sh
+# deploy                 :  主要用于拷贝conf/lib到被管控机器上
+# stop/start/restart     :  主要用于服务的启动/关闭/重启(app.sh start/stop/restart)
+
+- include: def-vars.yml
+- include: init.yml
+  tags : 
+    - init
+
+- include: deploy.yml
+  tags : 
+    - deploy
+
+- include: service.yml

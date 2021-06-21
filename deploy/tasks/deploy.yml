@@ -1,0 +1,11 @@
+- name: copy config
+  copy: src="{{ item }}" dest="{{ app_conf }}/" backup=yes
+  notify: restart app handler
+  with_fileglob:
+    - "{{ local_conf }}"
+
+- name: copy lib
+  copy: src="{{ item }}" dest="{{ app_lib }}/" backup=yes
+  notify: restart app handler
+  with_fileglob:
+    - "{{ local_lib }}"

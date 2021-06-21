@@ -1,0 +1,3 @@
+- name: print vars
+  ansible.builtin.debug:
+    msg: " unzip {{ java.install.pkg }} , install to: {{ remote.install.destination}} "

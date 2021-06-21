@@ -1,0 +1,9 @@
+- name: mkdir app dir
+  file: state=directory recurse=yes path={{item}}
+  with_items: 
+    - "{{ app_bin }}"
+    - "{{ app_conf }}"
+    - "{{ app_lib }}"
+    - "{{ app_logs }}"
+- name: create shell app.sh
+  template: src=app.sh.j2 dest="{{ app_bin }}/app.sh" owner=root group=root mode=755 force=yes
