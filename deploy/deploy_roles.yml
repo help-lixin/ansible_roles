@@ -1,4 +1,4 @@
- - hosts: erp
+ - hosts: "{{ hosts }}"
    remote_user: root
    gather_facts: no
    roles:

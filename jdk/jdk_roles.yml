@@ -1,4 +1,4 @@
- - hosts: erp
+ - hosts: all
    remote_user: root
    gather_facts: no
    roles:
