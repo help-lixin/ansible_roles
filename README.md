@@ -48,7 +48,7 @@ lixin-macbook:ansible_roles lixin$ tree /Users/lixin/Desktop/ansible_files/
 
 ```
 # 注意事项
-> 在上传到git时,我这边是去除了*.tar.gz
+> 在上传到git时,我这边是去除了*.tar.gz   
 
 # 参考文章
 ["自动化运维解决方案"](https://www.lixin.help/2019/09/20/Ansible-AutoDeploy.html)
