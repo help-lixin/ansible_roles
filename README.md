@@ -3,12 +3,11 @@
 
 # 项目结构
 ```
-lixin-macbook:ansible_roles lixin$ tree
 .
 ├── README.md
 ├── deploy
 │   ├── deploy_roles.yml
-│   ├── files -> /Users/lixin/Desktop/ansible_files     # 注意:这个是要发版的微服务目录.这个目录必须遵循一定的要求
+│   ├── files -> /Users/lixin/WorkspaceAnsible/files
 │   ├── handlers
 │   │   └── main.yml
 │   ├── tasks
@@ -23,7 +22,7 @@ lixin-macbook:ansible_roles lixin$ tree
 │       └── main.yml
 └── jdk
     ├── files
-    │   └── jdk-8u271-linux-x64.tar.gz      # 在上传到git时我就排除了的,下载后,你自己处理就好了
+    │   └── jdk-8u271-linux-x64.tar.gz
     ├── handlers
     ├── jdk_roles.yml
     ├── tasks
@@ -35,7 +34,6 @@ lixin-macbook:ansible_roles lixin$ tree
     │   └── jdk.sh.j2
     └── vars
         └── main.yml
-
 
 # 这个目录可以是运维定义的一个发版目录(建议扔到git仓库上).
 lixin-macbook:ansible_roles lixin$ tree /Users/lixin/Desktop/ansible_files/
