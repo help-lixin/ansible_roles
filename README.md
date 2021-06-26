@@ -7,7 +7,7 @@
 ├── README.md
 ├── deploy
 │   ├── deploy_roles.yml
-│   ├── files -> /Users/lixin/WorkspaceAnsible/files
+│   ├── files -> /Users/lixin/WorkspaceAnsible/files              # 指向的是软链接
 │   ├── handlers
 │   │   └── main.yml
 │   ├── tasks
@@ -20,22 +20,41 @@
 │   │   └── app.sh.j2
 │   └── vars
 │       └── main.yml
-└── jdk
+├── jdk
+│   ├── files
+│   │   └── jdk-8u271-linux-x64.tar.gz
+│   ├── handlers
+│   ├── jdk_roles.yml
+│   ├── tasks
+│   │   ├── config-env-var.yml
+│   │   ├── install.yml
+│   │   ├── main.yml
+│   │   └── ready-install.yml
+│   ├── templates
+│   │   └── jdk.sh.j2
+│   └── vars
+│       └── main.yml
+└── mysql
     ├── files
-    │   └── jdk-8u271-linux-x64.tar.gz
+    │   ├── mysql-5.7.34-linux-glibc2.12-x86_64.tar.gz  
+    │   └── mysqld                                        # 从tar.gz提取出来
     ├── handlers
-    ├── jdk_roles.yml
+    │   └── main.yml
+    ├── mysql_roles.yml
     ├── tasks
-    │   ├── config-env-var.yml
+    │   ├── add-user-and-group.yml
+    │   ├── config-limits-conf.yml
     │   ├── install.yml
-    │   ├── main.yml
-    │   └── ready-install.yml
+    │   └── main.yml
     ├── templates
-    │   └── jdk.sh.j2
+    │   ├── my.cnf.j2
+    │   └── rc.local.j2
     └── vars
         └── main.yml
 
-# 这个目录可以是运维定义的一个发版目录(建议扔到git仓库上).
+
+
+# 这个目录可以是运维定义的一个发版目录(建议扔到git仓库上或者通过sync).
 lixin-macbook:ansible_roles lixin$ tree /Users/lixin/Desktop/ansible_files/
 /Users/lixin/Desktop/ansible_files/
 └── test-service
