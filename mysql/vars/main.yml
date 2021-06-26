@@ -1,0 +1,11 @@
+mysql: 
+  user: mysql 
+  group: mysql  
+  comment: "mysql user"  
+  port: 3306 
+  pkg: mysql-5.7.34-linux-glibc2.12-x86_64.tar.gz  
+  home: "/usr/local"  
+  path: /mysql-5.7.34-linux-glibc2.12-x86_64
+  link: /mysql
+  root:
+    password: 111111

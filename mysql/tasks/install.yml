@@ -1,0 +1,16 @@
+- name: "unzip {{ mysql.pkg }} -d {{ mysql.home }}"
+  unarchive: copy=yes src={{ mysql.pkg }} dest={{ mysql.home }} owner={{ mysql.user }} group={{ mysql.group }} 
+- name: "ls -s {{ mysql.home }}{{ mysql.path }}  {{ mysql.home }}{{mysql.link}}"
+  file: src={{ mysql.home }}{{ mysql.path }} state=link  dest={{ mysql.home }}{{ mysql.link }} owner={{ mysql.user }} group={{ mysql.group }} force=yes
+- name:  "create data path:{{ mysql.home }}{{ mysql.link }}/data"
+  file: path={{ mysql.home }}{{ mysql.link }}/data state=directory recurse=yes owner={{ mysql.user }} group={{ mysql.group }} mode=0755
+- name: copy my.cnf
+  template: src=my.cnf.j2 dest={{ mysql.home }}/.my.cnf owner={{ mysql.user }} group={{ mysql.group }}
+- name: mysql init
+  script: "mysqld --defaults-file={{ mysql.home }}/.my.cnf  --user={{ mysql.user }} --basedir={{ mysql.home }}{{ mysql.link }} --datadir={{ mysql.home }}{{ mysql.link }}/data/ --initialize-insecure "
+- name: start
+  shell: "/usr/bin/nohup {{ mysql.home }}{{ mysql.link }}/bin/mysqld --defaults-file={{ mysql.home }}/.my.cnf  --user={{ mysql.user }} > /dev/null 2>&1 & " 
+- name: config mysql auto start 
+  template: src=rc.local.j2 dest=/etc/rc.d/rc.local mode=755
+- name: change root password
+  shell: " {{ mysql.home }}{{ mysql.link }}/bin/mysqladmin -S {{ mysql.home }}{{ mysql.link }}/data/mysql.sock -uroot password {{ mysql.root.password }} "

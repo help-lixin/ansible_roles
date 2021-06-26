@@ -1,0 +1,4 @@
+- name: config hard /etc/security/limits.conf
+  shell: 'echo "*         hard    nofile      65535" >> /etc/security/limits.conf' 
+- name: config soft /etc/security/limits.conf
+  shell: 'echo "*         soft    nofile      65535" >> /etc/security/limits.conf' 

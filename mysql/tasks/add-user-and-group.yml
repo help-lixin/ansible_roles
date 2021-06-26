@@ -1,0 +1,4 @@
+- name: add group
+  group: name={{ mysql.group }} 
+- name: add user
+  user: group={{mysql.group}} name={{ mysql.user }} shell="/sbin/nologin" home="{{mysql.home}}" create_home=yes comment="{{mysql.comment}}"

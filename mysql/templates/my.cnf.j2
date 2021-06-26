@@ -1,0 +1,15 @@
+[mysql]
+default-character-set=utf8
+
+[mysqld]
+lower_case_table_names=1
+basedir={{ mysql.home }}{{ mysql.link }}
+datadir={{ mysql.home }}{{ mysql.link }}/data
+port={{ mysql.port }}
+character-set-server=utf8
+max_connections=2000
+innodb_buffer_pool_size=128M
+default-storage-engine=INNODB
+log-error={{ mysql.home }}{{ mysql.link }}/data/error.log
+pid-file={{ mysql.home }}{{ mysql.link }}/data/mysql.pid
+socket={{ mysql.home }}{{ mysql.link }}/data/mysql.sock
